@@ -1,0 +1,52 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model User {
+  id            String    @id @default(cuid())
+  email         String    @unique
+  password      String
+  name          String?
+  tokens        Int       @default(0)
+  createdAt     DateTime  @default(now())
+  updatedAt     DateTime  @updatedAt
+  analyses      Analysis[]
+  transactions  Transaction[]
+}
+
+model Analysis {
+  id          String   @id @default(cuid())
+  userId      String
+  user        User     @relation(fields: [userId], references: [id])
+  filename    String
+  fileSize    Int
+  results     Json
+  verdict     String   // "clean" | "partial" | "protected"
+  tokensUsed  Int      @default(1)
+  createdAt   DateTime @default(now())
+}
+
+model Transaction {
+  id              String   @id @default(cuid())
+  userId          String
+  user            User     @relation(fields: [userId], references: [id])
+  stripeSessionId String   @unique
+  amount          Int      // in cents
+  tokensAdded     Int
+  status          String   // "pending" | "completed" | "failed"
+  createdAt       DateTime @default(now())
+}
+
+model TokenPack {
+  id       String @id @default(cuid())
+  name     String
+  tokens   Int
+  price    Int    // in cents
+  popular  Boolean @default(false)
+  stripePriceId String
+}
