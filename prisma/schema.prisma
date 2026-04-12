@@ -4,7 +4,6 @@ generator client {
 
 datasource db {
   provider = "postgresql"
-  url      = env("DATABASE_URL")
 }
 
 model User {
@@ -26,7 +25,7 @@ model Analysis {
   filename    String
   fileSize    Int
   results     Json
-  verdict     String   // "clean" | "partial" | "protected"
+  verdict     String
   tokensUsed  Int      @default(1)
   createdAt   DateTime @default(now())
 }
@@ -36,17 +35,8 @@ model Transaction {
   userId          String
   user            User     @relation(fields: [userId], references: [id])
   stripeSessionId String   @unique
-  amount          Int      // in cents
+  amount          Int
   tokensAdded     Int
-  status          String   // "pending" | "completed" | "failed"
+  status          String
   createdAt       DateTime @default(now())
-}
-
-model TokenPack {
-  id       String @id @default(cuid())
-  name     String
-  tokens   Int
-  price    Int    // in cents
-  popular  Boolean @default(false)
-  stripePriceId String
 }
