@@ -1,11 +1,13 @@
 export const dynamic = "force-dynamic"
+export const runtime = "nodejs"
+
 import { NextRequest, NextResponse } from "next/server"
-import { prisma } from "@/lib/prisma"
 import { verifyPassword, signToken } from "@/lib/auth"
 
 export async function POST(req: NextRequest) {
   try {
     const { email, password } = await req.json()
+    const { prisma } = await import("@/lib/prisma")
     const user = await prisma.user.findUnique({ where: { email } })
     if (!user) return NextResponse.json({ error: "Identifiants invalides" }, { status: 401 })
     const valid = await verifyPassword(password, user.password)
