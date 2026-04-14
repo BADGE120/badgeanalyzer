@@ -2,7 +2,7 @@ import type { Metadata } from "next"
 import "./globals.css"
 
 export const metadata: Metadata = {
-  title: "BadgeAnalyzer — Détection de protections anti-copie",
+  title: "Detector Badge Minute — Détection de protections anti-copie",
   description: "Analysez vos dumps de badges NFC/RFID pour détecter les systèmes anti-copie",
 }
 
