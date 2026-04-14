@@ -23,16 +23,14 @@ export default function RegisterPage() {
       <div style={{ width: "100%", maxWidth: 400 }}>
         <Link href="/" style={{ display: "flex", alignItems: "center", gap: 8, marginBottom: 40, textDecoration: "none", color: "var(--text2)", fontSize: 14 }}>← Retour</Link>
         <div style={{ marginBottom: 32 }}>
-          <div style={{ width: 40, height: 40, background: "var(--accent)", borderRadius: 10, display: "flex", alignItems: "center", justifyContent: "center", fontSize: 16, fontWeight: 700, color: "#fff", marginBottom: 20 }}>BA</div>
+          <div style={{ width: 40, height: 40, background: "var(--accent)", borderRadius: 10, display: "flex", alignItems: "center", justifyContent: "center", fontSize: 16, fontWeight: 700, color: "#fff", marginBottom: 20 }}>DB</div>
           <h1 style={{ fontSize: 28, fontWeight: 800, letterSpacing: "-0.03em", marginBottom: 8 }}>Créer un compte</h1>
-          <div style={{ display: "inline-flex", alignItems: "center", gap: 6, padding: "5px 12px", borderRadius: 20, background: "rgba(61,214,140,0.12)", border: "1px solid rgba(61,214,140,0.25)", fontSize: 12, color: "var(--green)" }}>
-            🎁 3 jetons offerts à l'inscription
-          </div>
+          <p style={{ color: "var(--text2)", fontSize: 14 }}>Accédez à l'espace d'analyse</p>
         </div>
         <form onSubmit={handleSubmit} style={{ display: "flex", flexDirection: "column", gap: 14 }}>
           {["name","email","password"].map(field => (
             <div key={field}>
-              <label style={{ display: "block", fontSize: 13, color: "var(--text2)", marginBottom: 6, fontWeight: 500, textTransform: "capitalize" }}>
+              <label style={{ display: "block", fontSize: 13, color: "var(--text2)", marginBottom: 6, fontWeight: 500 }}>
                 {field === "name" ? "Nom" : field === "email" ? "Email" : "Mot de passe"}
               </label>
               <input
