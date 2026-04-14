@@ -3,14 +3,14 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-  "postinstall": "prisma generate",
-  "dev": "next dev",
-  "build": "prisma generate && next build",
-  "start": "next start",
-  "lint": "eslint"
+    "postinstall": "prisma generate",
+    "dev": "next dev",
+    "build": "prisma generate && next build",
+    "start": "next start",
+    "lint": "eslint"
   },
   "dependencies": {
-    "@prisma/client": "^7.7.0",
+    "@prisma/client": "^5.22.0",
     "@stripe/stripe-js": "^9.1.0",
     "bcryptjs": "^3.0.3",
     "clsx": "^2.1.1",
@@ -18,7 +18,7 @@
     "lucide-react": "^1.8.0",
     "next": "16.2.3",
     "nodemailer": "^8.0.5",
-    "prisma": "^7.7.0",
+    "prisma": "^5.22.0",
     "react": "19.2.4",
     "react-dom": "19.2.4",
     "stripe": "^22.0.1"
