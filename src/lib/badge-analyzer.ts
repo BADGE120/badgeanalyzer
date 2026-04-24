@@ -245,4 +245,3 @@ export function analyzeBadge(bufferOrText: Buffer | string, filename: string): A
   }
   return analyzeBinary(bufferOrText as Buffer, filename)
 }
-}
