@@ -81,6 +81,7 @@ const BRAND_MASKS: Record<string, (string | null)[][]> = {
   DEFAULT: Array(16).fill([null, null, null, null]),
   DEFAULT_ZERO: Array(16).fill([null, null, null, null]),
   }
+
 function hexToAscii(hex: string): string {
   let ascii = ""
   for (let i = 0; i < hex.length; i += 2) {
